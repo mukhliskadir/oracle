@@ -9,21 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<div class="sidebar">
-    <div class="img"><img src="IMG/contoh.jpg" style="width:120px;height: 120px; margin-top: 50px;margin-left: 40px;border-radius: 50%;border: 2px solid black;">
-    </div>
-    <%     Object name = session.getAttribute("staffname"); %>
-    <div class="profname" style="margin-left: 10px;margin-top: -35px;font-weight: bold;font-size: 20px;margin-bottom: 20px;margin-right: 30px;text-align:center;"><%=name %></div>
-    <button type="urusakaun" href="urusakaun.html" value="urusakaun" style="margin-left: 40px;margin-bottom: 40px;">URUS AKAUN</button>
-    <a   href="Speaker.jsp"><i class="fa-solid fa-user"></i>  Penceramah</a>
-    <a class="active" href="Topic.jsp"><i class="fa-solid fa-moon"></i>  Tajuk</a>
-    <a  href="Jadual.jsp"><i class="fa-solid fa-calendar-days"></i>  Jadual</a>
-    <a href="Announcement.jsp"><i class="fa-solid fa-volume-high"></i> Pengumuman</a>
-    <form method="get" action="StaffServlet">
-        <input type="hidden" name="action" value="logout">
-        <button id="logot" type="logout">LOGOUT</button>
-    </form>
-</div>
+
 
 <%@include file="navbar.jsp"%>
 <div class="content">

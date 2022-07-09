@@ -2,14 +2,17 @@ package com.example.mosque;
 
 import java.io.InputStream;
 import java.io.Serializable;
+import java.sql.Blob;
 import java.sql.Date;
+
+import javax.servlet.http.Part;
 
 public class Announcement implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
 	public int id;
-	public InputStream picture;
+	public Object picture;
 	public String title;
 	public String descr;
 	public Date date;
@@ -25,10 +28,15 @@ public class Announcement implements Serializable {
 		this.id = id;
 	}
 
+	
 
 
-	public InputStream getPicture() {
+	public Object getPicture() {
 		return picture;
+	}
+
+	public void setPicture(Object picture) {
+		this.picture = picture;
 	}
 
 	public String getTitle() {

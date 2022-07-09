@@ -5,6 +5,7 @@ import javax.servlet.annotation.MultipartConfig;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -35,16 +36,15 @@ public class AnnouncementDao {
         return con;
 
     }
-    public void addAnnouncement (Announcement anc, Object inputStream) throws SQLException {
+    public void addAnnouncement (Announcement anc) throws SQLException {
 
         // try-with-resource statement will auto close the connection.
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement
                      ("insert into announcement(announcementpicture,announcementtitle,announcementdesc,announcementdate,announcementtime) values(?,?,?,?,?)"))
         {
-			if (inputStream != null) {
 
-            ps.setBlob(1, anc.getPicture());}
+            ps.setBlob(1, (Blob) anc.getPicture());
             ps.setString(2, anc.getTitle());
             ps.setString(3, anc.getDescr());
             ps.setDate(4, anc.getDate());

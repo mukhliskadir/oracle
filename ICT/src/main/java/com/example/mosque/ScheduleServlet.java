@@ -45,9 +45,7 @@ public class ScheduleServlet extends HttpServlet {
 	                case "addSchedule":
 	                    addSchedule(request, response);
 	                    break;
-	                case "deleteSchedule":
-	                    deleteSchedule(request,response);
-	                    break;
+	             
 	                case "updateSchedule":
 	                    updateSchedule(request,response);
 	                    break;
@@ -184,15 +182,10 @@ public class ScheduleServlet extends HttpServlet {
         scd.addSchedule(sc);
         response.sendRedirect("senaraiJadual.jsp");
     }
-	private void deleteSchedule(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("scheduleId"));
-        scd.deleteSchedule(id);
-        response.sendRedirect("displaySchedule.jsp");
-    }
+
 	private void updateSchedule(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("scheduleId"));
+        int id = Integer.parseInt(request.getParameter("id"));
         int spk = Integer.parseInt(request.getParameter("scSpeaker"));
         int tpc = Integer.parseInt(request.getParameter("scTopic"));
         
@@ -203,11 +196,11 @@ public class ScheduleServlet extends HttpServlet {
         sc.setTopicId(tpc);
         
         scd.updateSchedule(sc);
-        response.sendRedirect("displaySchedule.jsp");
+        response.sendRedirect("senaraiJadual.jsp");
     }
 	private void cancel(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-		response.sendRedirect("displaySchedule.jsp");
+		response.sendRedirect("senaraiJadual.jsp");
 	}
 
 }

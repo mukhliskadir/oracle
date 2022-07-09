@@ -29,28 +29,15 @@
 />
 
 <sql:query dataSource="${ic}" var="oc">
-select RANK() OVER(ORDER BY scheduleid) "rank",scheduleid,scheduledate,scheduletime,speakername,topicname
-from schedule s
-join speaker q on s.speakerid = q.speakerid
-join topic t on s.topicid = t.topicid
-order by scheduledate desc	
-</sql:query>
-      <div class="sidebar">
-    <div class="img"><img src="IMG/contoh.jpg" style="width:120px;height: 120px; margin-top: 50px;margin-left: 40px;border-radius: 50%;border: 2px solid black;">
-    </div>
-    <%     Object name = session.getAttribute("staffname"); %>
-    <div class="profname" style="margin-left: 10px;margin-top: -35px;font-weight: bold;font-size: 20px;margin-bottom: 20px;margin-right: 30px;text-align:center;"><%=name %></div>
-    <button type="urusakaun" href="urusakaun.html" value="urusakaun" style="margin-left: 40px;margin-bottom: 40px;">URUS AKAUN</button>
-    <a   href="Speaker.jsp"><i class="fa-solid fa-user"></i>  Penceramah</a>
-    <a href="Topic.jsp"><i class="fa-solid fa-moon"></i>  Tajuk</a>
-    <a class="active" href="Jadual.jsp"><i class="fa-solid fa-calendar-days"></i>  Jadual</a>
-    <a href="Announcement.jsp"><i class="fa-solid fa-volume-high"></i> Pengumuman</a>
-    <form method="get" action="StaffServlet">
-        <input type="hidden" name="action" value="logout">
-        <button id="logot" type="logout">LOGOUT</button>
-    </form>
-</div>
+select RANK() OVER(ORDER BY scheduleid) "rank",scheduleid,to_char(scheduledate,'YYYY-MM-DD')"scheduledate",scheduletime,speakername,topicname
+from schedule 
+join speaker 
+using (speakerid)
+join topic
+using(topicid)
 
+</sql:query>
+  
 
 <%@include file="navbar.jsp"%>
 

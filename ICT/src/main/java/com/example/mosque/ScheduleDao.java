@@ -29,14 +29,37 @@ public class ScheduleDao {
 	    public void addSchedule (Schedule sc) throws SQLException {
 
 	        try (Connection con = getConnection();
-	             PreparedStatement ps = con.prepareStatement
-	                     ("insert into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?),(?,?,?,?)"))
+	             PreparedStatement ps = con.prepareStatement(
+	            		 		" insert ALL "
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "into SCHEDULE(SCHEDULEDATE,SCHEDULETIME,SPEAKERID,TOPICID) values(?,?,?,?)"
+	            		 		+ "SELECT * FROM DUAL"
+	            		 )
+	                       		 
+	        		
+	        		
+	        		
+	        		
+	        		)
 	        {
 
 	            ps.setDate(1,sc.getScheduleDate());
 	            ps.setString(2, sc.getScheduleTime());
 	            ps.setInt(3,sc.getSpeakerId());
 	            ps.setInt(4, sc.getTopicId());
+	            
 	            ps.setDate(5,sc.getScheduleDate());
 	            ps.setString(6, sc.getScheduleTime2());
 	            ps.setInt(7, sc.getSpeakerId2());
@@ -46,6 +69,7 @@ public class ScheduleDao {
 	            ps.setString(10, sc.getScheduleTime_2());
 	            ps.setInt(11,sc.getSpeakerId_2());
 	            ps.setInt(12, sc.getTopicId_2());
+	            
 	            ps.setDate(13,sc.getScheduleDate_2());
 	            ps.setString(14, sc.getScheduleTime2_2());
 	            ps.setInt(15, sc.getSpeakerId2_2());
@@ -55,6 +79,7 @@ public class ScheduleDao {
 	            ps.setString(18, sc.getScheduleTime_3());
 	            ps.setInt(19,sc.getSpeakerId_3());
 	            ps.setInt(20, sc.getTopicId_3());
+	            
 	            ps.setDate(21,sc.getScheduleDate_3());
 	            ps.setString(22, sc.getScheduleTime2_3());
 	            ps.setInt(23, sc.getSpeakerId2_3());
@@ -64,6 +89,7 @@ public class ScheduleDao {
 	            ps.setString(26, sc.getScheduleTime_4());
 	            ps.setInt(27,sc.getSpeakerId_5());
 	            ps.setInt(28, sc.getTopicId_4());
+	            
 	            ps.setDate(29,sc.getScheduleDate_4());
 	            ps.setString(30, sc.getScheduleTime2_4());
 	            ps.setInt(31, sc.getSpeakerId2_4());
@@ -73,6 +99,7 @@ public class ScheduleDao {
 	            ps.setString(34, sc.getScheduleTime_5());
 	            ps.setInt(35,sc.getSpeakerId_5());
 	            ps.setInt(36, sc.getTopicId_5());
+	            
 	            ps.setDate(37,sc.getScheduleDate_5());
 	            ps.setString(38, sc.getScheduleTime2_5());
 	            ps.setInt(39, sc.getSpeakerId2_5());
@@ -82,6 +109,7 @@ public class ScheduleDao {
 	            ps.setString(42, sc.getScheduleTime_6());
 	            ps.setInt(43,sc.getSpeakerId_6());
 	            ps.setInt(44, sc.getTopicId_6());
+	            
 	            ps.setDate(45,sc.getScheduleDate_6());
 	            ps.setString(46, sc.getScheduleTime2_6());
 	            ps.setInt(47, sc.getSpeakerId2_6());
@@ -91,6 +119,7 @@ public class ScheduleDao {
 	            ps.setString(50, sc.getScheduleTime_7());
 	            ps.setInt(51,sc.getSpeakerId_7());
 	            ps.setInt(52, sc.getTopicId_7());
+	            
 	            ps.setDate(53,sc.getScheduleDate_7());
 	            ps.setString(54, sc.getScheduleTime2_7());
 	            ps.setInt(55, sc.getSpeakerId2_7());
@@ -103,19 +132,11 @@ public class ScheduleDao {
 	            e.printStackTrace();
 	        }
 	    }
-	    public boolean deleteSchedule(int id) throws SQLException {
-	        boolean rowDeleted;
-	        try (Connection connection = getConnection();
-	             PreparedStatement statement = connection.prepareStatement("delete from schedule where scid=?");) {
-	            statement.setInt(1, id);
-	            rowDeleted = statement.executeUpdate() > 0;
-	        }
-	        return rowDeleted;
-	    }
+	 
 	    public boolean updateSchedule(Schedule sc) throws SQLException {
 	        boolean rowUpdated;
 	        try (Connection connection = getConnection();
-	             PreparedStatement ps = connection.prepareStatement("update schedule set spkid=? where topicid=?");) {
+	             PreparedStatement ps = connection.prepareStatement("update schedule set speakerid=?,topicid=? where scheduleid=?");) {
 
 	        	ps.setInt(1,sc.getSpeakerId());
 		        ps.setInt(2, sc.getTopicId());

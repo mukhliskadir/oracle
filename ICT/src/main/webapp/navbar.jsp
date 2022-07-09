@@ -12,23 +12,56 @@
 </head>
 <body>
 
+
+<div class="sidebar">
+    <div class="img"><img src="IMG/contoh.jpg" style="width:120px;height: 120px; margin-top: 50px;margin-left: 40px;border-radius: 50%;border: 2px solid black;">
+    </div>
+    <%     Object name = session.getAttribute("staffname"); %>
+    <div class="profname" style="margin-left: 10px;margin-top: -35px;font-weight: bold;font-size: 20px;margin-bottom: 20px;margin-right: 30px;text-align:center;"><%=name %></div>
+
+ <form>
+    <button type="logout" formaction="Staff.jsp" style="margin-left: 40px;margin-bottom: 40px;">URUS AKAUN</button>
+  </form>
+  
+    <a   href="Speaker.jsp" onclick='func()'><i class="fa-solid fa-user"></i>  Penceramah</a>
+    <a href="Topic.jsp"><i class="fa-solid fa-moon"></i>  Tajuk</a>
+    <a  href="Jadual.jsp"><i class="fa-solid fa-calendar-days"></i>  Jadual</a>
+    <a href="Announcement.jsp"><i class="fa-solid fa-volume-high"></i> Pengumuman</a>
+    <form method="get" action="LoginServlet">
+        <input type="hidden" name="action" value="logout">
+        <button id="logot" type="logout" onclick="return confirm('Yakin untuk keluar?')">LOGOUT</button>
+    </form>
+</div>
+
 <div class = "header" style="">
     <img src="IMG/logo.png" style="width: 500px;height: 90px; float: left;margin-left: 270px ;">
-	<h3 style="color:black;">Waktu: <h7 id="hari"></h7	> <span id="datetime"></span></h3></div>
+	<h3 style="color:black;">Waktu: <h7 id="hari"></h7> <span id="datetime"></span></h3>
 </div>
+
+
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
-  /*  $(document).on('click','a',function(){
-        $(this).addClass('active').siblings().removeClass('active')
-    })*/
+$(function($) {
+	  let url = window.location.href;
+	  $('.sidebar a').each(function() {
+	    if (this.href === url) {
+	      $(this).closest('a').addClass('active');
+	    }
+	  });
+	});
     {var dt = new Date();
         document.getElementById("datetime").innerHTML = dt.toLocaleString();
     }
-    const weekday = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"];
+  { const weekday = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"];
 
     const d = new Date();
     let day = weekday[d.getDay()];
-    document.getElementById("hari").innerHTML = day;
+    document.getElementById("hari").innerHTML = day;}
+    
+    {
+    
+    	
+    }
 </script>
 </html>

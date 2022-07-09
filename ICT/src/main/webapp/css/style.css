@@ -93,7 +93,7 @@ button[type=save]:hover,button[type=approve]:hover,button[type=confirm]:hover{ba
 button[type=edit]:hover,button[type=returned]:hover,button[type=login]:hover,button[type=signup]:hover{background-color: #f5a742;box-shadow: 0px 15px 20px rgba(247, 141, 20, 0.4);color: #fff;transform: translateY(-3px);}
 button[type=delete]:hover,button[type=remove]:hover{background-color: #d9253a;box-shadow: 0px 15px 20px rgba(247, 20, 47, 0.4);color: #fff;transform: translateY(-3px);}
 button[type=cancel]:hover{background-color: black;box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);color: #fff;transform: translateY(-3px);}
-button[type=logout]:hover{background-color: black;box-shadow: 0px 15px 20px rgba(255, 204, 0, 0.4);color: #fff;transform: translateY(-3px);}
+button[type=logout]:hover,button[type=Acc]:hover{background-color: black;box-shadow: 0px 15px 20px rgba(255, 204, 0, 0.4);color: #fff;transform: translateY(-3px);}
 .button{
   display: flex;
   justify-content: center;
