@@ -26,17 +26,17 @@
    
   <div class="headerr">
         <img src="IMG/logo.png" style="width: 500px;max-height: 110px;">
-        <button class="account" name="login" type="login" onclick="signAlert()">LOG IN</button>
+        <button class="account" name="login" type="login" onclick="signAlert()">LOG MASUK</button>
     </div>
 
 
 <form id="signform" action="LoginServlet" method="post">
-    <div class="mssg"> SIGN IN <br>
-        <input type="text" name="username" placeholder="Enter Username" value="" required>
-        <input type="password" name="password" placeholder="Enter Password" value="" required>
-        <button type="cancel" class="cancel" onclick="location.href='index.jsp'">CANCEL</button>
+    <div class="mssg"> LOG MASUK <br>
+        <input type="text" name="username" placeholder="Masukkan nama pengguna" value="" required>
+        <input type="password" name="password" placeholder="Masukkan kata laluan" value="" required>
+        <button type="cancel" class="cancel" onclick="location.href='index.jsp'">BATAL</button>
         <input type="hidden" name="action" value="login">
-        <button type="signin" class="signIn" name="submit">SIGN IN</button>
+        <button type="signin" class="signIn" name="submit">LOG MASUK</button>
     </div>
     </form>
     
@@ -44,7 +44,7 @@
 <style>
  #signform .mssg,
     #signupform .msssg {
-        font-size: 18px;
+        font-size: 15px;
     }
 </style>
 <body>
@@ -82,11 +82,9 @@
 
 
 <div class="prayertime">
-<iframe src="https://timesprayer.com/widgets.php?frame=2&amp;lang=en&amp;name=kuala-lumpur&amp;avachang=true&amp;time=0&amp;fcolor=FFEDB0&amp;scolor=000000&amp;tcolor=925D17&amp;frcolor=3C4E47" style="border: none; overflow: hidden; width: 100%; height: 314px;"></iframe>
+<iframe src="https://timesprayer.com/widgets.php?frame=2&amp;lang=en&amp;name=kuala-lumpur&amp;avachang=true&amp;fcolor=FCF9BB&amp;scolor=000000&amp;tcolor=C2B069&amp;frcolor=AD901D" style="border: none; overflow: hidden; width: 100%; height: 314px;"></iframe></div>
 
-</div>
-
-  <div class="content" ><br>    
+ <div class="content" ><br>    
   <div id="home">
   <div style="overflow-x:auto;">
   	<p style="font-family: 'Brush Script MT';margin-left:auto;text-align:center;margin-right:auto;font-size:40px">Jadual Kuliah Mingguan</p>
@@ -201,7 +199,10 @@
     </div>
           
 </div>
+<div class="footer" style="height:80px;">
 
+
+</div>
 </body>
 
 <script>

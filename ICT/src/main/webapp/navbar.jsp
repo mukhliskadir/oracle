@@ -14,7 +14,7 @@
 
 
 <div class="sidebar">
-    <div class="img"><img src="IMG/contoh.jpg" style="width:120px;height: 120px; margin-top: 50px;margin-left: 40px;border-radius: 50%;border: 2px solid black;">
+    <div class="img"><img src="${pageContext.servletContext.contextPath }/StaffServlet?id=<%=session.getAttribute("staffid")%>"style="width:120px;height: 120px; margin-top: 50px;margin-left: 40px;border-radius: 50%;border: 2px solid black;">
     </div>
     <%     Object name = session.getAttribute("staffname"); %>
     <div class="profname" style="margin-left: 10px;margin-top: -35px;font-weight: bold;font-size: 20px;margin-bottom: 20px;margin-right: 30px;text-align:center;"><%=name %></div>
@@ -29,7 +29,7 @@
     <a href="Announcement.jsp"><i class="fa-solid fa-volume-high"></i> Pengumuman</a>
     <form method="get" action="LoginServlet">
         <input type="hidden" name="action" value="logout">
-        <button id="logot" type="logout" onclick="return confirm('Yakin untuk keluar?')">LOGOUT</button>
+        <button id="logot" type="logout" onclick="return confirm('Yakin untuk keluar?')">LOG KELUAR</button>
     </form>
 </div>
 

@@ -14,7 +14,6 @@
 </head>
 <body>
 
-
 <sql:setDataSource 
 				   var="ic" driver="oracle.jdbc.OracleDriver"
                    url="jdbc:oracle:thin:@localhost:1521:XE"
@@ -44,6 +43,7 @@
                 <th style="width: 100px;">Tindakan</th>
             </tr>
             <c:forEach var="result" items="${staff.rows}">
+		<c:if test="${sessionScope.staffrole== 'AJK Multimedia'}" > 
                 <tr>
                     <td >
                         <c:out value="${result.rank}"/>
@@ -59,23 +59,27 @@
                     </td>
                  
                     <td>
-                                     <c:if test="${result.staffid!='1'}">
-                    
+                    	
                         <form method="post">
-                            <button  class="action"  type="edit" formaction="editSpeaker.jsp?id=${result.speakerid}"
-                            >KEMASKINI
-                            </button>
+                            <button  class="action"  type="edit" formaction="viewStaff.jsp?id=${result.staffid}">LIHAT</button>
                         </form>
                         <form method="post">
-                            <input type="hidden" name="speakers" value="${result.speakerid}">
-                            <input type="hidden" name="action" value="deleteSpeaker">
-                            <button  class="action"  type="delete" formaction="SpeakerServlet"  onclick="return confirm('Yakin untuk buang <c:out value="${result.speakername}"/> ?');">BUANG</button>
+                            <input type="hidden" name="staff" value="${result.staffid}">
+                            <input type="hidden" name="action" value="deleteStaff">
+                            <button  class="action"  type="delete" formaction="StaffServlet"  onclick="return confirm('Yakin untuk buang <c:out value="${result.staffname}"/> ?');">BUANG</button>
                         </form>
-                                          </c:if>
                         
                     </td>
                 </tr>
+                </c:if>
             </c:forEach>
+           <c:if test="${sessionScope.staffrole!= 'AJK Multimedia'}" > 
+           <div style="background-color:red; color:white;padding:10px;">
+  				ANDA TIDAK MEMPUNYAI AKSES UNTUK MENGURUS AKAUN, SILA BERJUMPA PIHAK AJK MULTIMEDIA UNTUK SEBARANG PERUBAHAN.      
+           </div>
+           
+           </c:if>
+            
         </table>
     </div>
     <br><br><br>

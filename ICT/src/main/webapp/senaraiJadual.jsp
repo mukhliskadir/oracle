@@ -31,9 +31,9 @@
 <sql:query dataSource="${ic}" var="oc">
 select RANK() OVER(ORDER BY scheduleid) "rank",scheduleid,to_char(scheduledate,'YYYY-MM-DD')"scheduledate",scheduletime,speakername,topicname
 from schedule 
-join speaker 
+LEFT join speaker 
 using (speakerid)
-join topic
+LEFT join topic
 using(topicid)
 
 </sql:query>

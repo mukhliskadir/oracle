@@ -18,17 +18,17 @@
     <div class="custform">
         <form class="speaker" method="post" action="SpeakerServlet">
             <div class="dataa">
-                <label>   Name </label>
+                <label>   Nama </label>
                 <input type="text" name="speakerName" value="" required oninvalid="this.setCustomValidity('Sila masukkan nama')" oninput="setCustomValidity('')">
             </div>
             <div class="dataa">
-                <label>  Phone</label>
+                <label>  No. Telefon</label>
                 <input type="text" name="speakerPhone" value="">
             </div>
             <div class="dataa">
-                <label>    Education</label>
+                <label>    Pendidikan</label>
                 <input type="text" name="speakerEdu" value="">
-            </div>
+            </div> 
             <div id="mybutton" class="button">
                 <button type="cancel" name="action"  value="cancel" formaction="SpeakerServlet">BATAL</button>
                 <input type="hidden" name="action" value="addSpeaker">
@@ -39,27 +39,6 @@
 </div>
 <br><br><br>
 </body>
-<script type="text/javascript">{var dt = new Date();
-    document.getElementById("datetime").innerHTML = dt.toLocaleString();}
 
-function functionAlert(msg, myYes) {
 
-    var confirmBox = $("#confirm");
-    confirmBox.find(".message").text(msg);
-    confirmBox.find(".yes").unbind().click(function() {
-        alert("Success! Changes has been saved succesfully!");
-        window.location.href = "cth.html";
-        confirmBox.hide();
-    });
-    confirmBox.find(".no").unbind().click(function() {
-        confirmBox.hide();
-    });
-    confirmBox.find(".yes").click(myYes);
-    confirmBox.show();}
-
-</script>
-<style type="text/css">
-    h3{color: black;}
-    #myInput{display: inline-block;width: 500px ;}
-</style>
 </html>

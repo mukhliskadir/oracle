@@ -56,6 +56,8 @@ public class LoginServlet extends HttpServlet {
 		  HttpSession session = request.getSession();
 	        session.removeAttribute("staffid");
 	        session.removeAttribute("staffname");
+	        session.removeAttribute("staffrole");
+
 	        session.invalidate();
 	        response.sendRedirect("index.jsp");
 	}
@@ -112,6 +114,8 @@ private void stafflogin(HttpServletRequest request, HttpServletResponse response
 
                 	session.setAttribute("staffid", res.getInt(1));
                     session.setAttribute("staffname",res.getString(2));
+                    session.setAttribute("staffrole",res.getString(7));
+
      	     
                     response.sendRedirect("Speaker.jsp");
 

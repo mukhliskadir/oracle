@@ -68,14 +68,13 @@ public class AnnouncementDao {
     public boolean updateAnnouncement(Announcement anc) throws SQLException, IOException {
         boolean rowUpdated;
         try (Connection connection = getConnection();
-             PreparedStatement ps = connection.prepareStatement("update announcement set announcementpicture=?,announcementtitle=?,announcementdesc=?,announcementdate=?,announcementtime=? where announcementid=?");) {
+             PreparedStatement ps = connection.prepareStatement("update announcement set announcementtitle=?,announcementdesc=?,announcementdate=?,announcementtime=? where announcementid=?");) {
 
-        	ps.setBlob(1, anc.getPicture());
-            ps.setString(2, anc.getTitle());
-            ps.setString(3, anc.getDescr());
-            ps.setDate(4, anc.getDate());
-            ps.setString(5, anc.getTime());
-        	ps.setInt(6, anc.getId());
+            ps.setString(1, anc.getTitle());
+            ps.setString(2, anc.getDescr());
+            ps.setDate(3, anc.getDate());
+            ps.setString(4, anc.getTime());
+        	ps.setInt(5, anc.getId());
             rowUpdated = ps.executeUpdate() > 0;
         }
         return rowUpdated;

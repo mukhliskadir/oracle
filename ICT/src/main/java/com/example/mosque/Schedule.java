@@ -64,6 +64,16 @@ public class Schedule implements Serializable {
 	public int speakerId2_7;
 	public int topicId2_7;
 	
+	public int staffid;
+	
+	public int getStaffid() {
+		return staffid;
+	}
+
+	public void setStaffid(int staffid) {
+		this.staffid = staffid;
+	}
+
 	public Schedule() {}
 
 	public int getId() {

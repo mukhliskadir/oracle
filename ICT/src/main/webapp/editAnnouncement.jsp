@@ -52,11 +52,9 @@ while(rs.next())
  
         
       <div class="ANNOUNCEMENTFORM">
-         <form class="announcement" method="post">
+         <form class="announcement" method="post" enctype="multipart/form-data">
       <div class="dataa">
-     <label>   Poster </label>
-        <input type="file"  accept="image/*" name="aPicture" id="file"  onchange="loadFile(event)" >
-    </div>
+ 
     <div class="dataa">
      <label>   Tajuk </label>
         <input type="text" name="aTitle" value='<%=rs.getString("announcementtitle") %>' >
@@ -87,15 +85,7 @@ while(rs.next())
  </div>
 
 
-           <div class="ANNOUNCEMENTFORM">
- <div class="divposter">
- 	<div class="dataa">
-      <p><img id="output" style="height:400px;" /></p>
-    </div>
-      </div>
-      </div>
-
-           </div>
+    
           
 <br><br><br>
 

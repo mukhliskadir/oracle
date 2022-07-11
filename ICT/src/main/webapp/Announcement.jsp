@@ -87,7 +87,7 @@
                            <input type="hidden" name="aId" value="${result.announcementid}">
                            <input type="hidden" name="action" value="deleteAnnouncement">
  
-                           <button id="complexConfirm" class="action"  type="delete" formaction="AnnouncementServlet" >DELETE</button>
+                           <button id="complexConfirm" class="action"  type="delete" formaction="AnnouncementServlet" onclick="return confirm('Yakin untuk buang?')">DELETE</button>
                         </form>
                      </td>
                   </tr>

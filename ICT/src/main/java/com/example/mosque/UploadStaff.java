@@ -22,9 +22,9 @@ import javax.servlet.http.Part;
 
 
 
-@WebServlet("/UploadServlet")
+@WebServlet("/UploadStaff")
 @MultipartConfig(maxFileSize = 16177215) // upload file up to 16MB
-public class UploadServlet extends HttpServlet {
+public class UploadStaff extends HttpServlet {
 
 	private static final long serialVersionUID = -1623656324694499109L;
 	
@@ -55,19 +55,21 @@ public class UploadServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		// gets values of text fields
-			String title = request.getParameter("aTitle");
-	        String desc = request.getParameter("aDesc");
-	        String date = request.getParameter("aDate");
-	        String timme = request.getParameter("aTime");
-	       
+	     String name = request.getParameter("staffName");
+	        String phone = request.getParameter("staffPhone");
+	        String role = request.getParameter("staffRole");
+	        String username = request.getParameter("staffUsername");
+	        String password = request.getParameter("staffPassword");
+	        
 	        HttpSession session=request.getSession();  
 	        int svid = (Integer) session.getAttribute("staffid");
+	        
 	        
 
 		InputStream inputStream = null;
 
 		// obtains the upload file part in this multipart request
-		Part filePart = request.getPart("aPicture");
+		Part filePart = request.getPart("staffPic");
 		if (filePart != null) {
 			// debug messages
 			System.out.println(filePart.getName());
@@ -82,18 +84,20 @@ public class UploadServlet extends HttpServlet {
 
 		try {Connection con = getConnection();
 			// constructs SQL statement
-			String sql = "insert into announcement(announcementpicture,announcementtitle,announcementdesc,announcementdate,announcementtime,staffid) values(?,?,?,?,?,?)";
+			String sql = "insert into staff(staffname,staffphoneno,staffrole,staffusername,staffpass,staffpicture,supervisorid) values(?,?,?,?,?,?,?)";
 
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(2, title);
-            ps.setString(3, desc);
-            ps.setDate(4, Date.valueOf(date));
-            ps.setString(5, timme);
-            ps.setInt(6, svid);
+			ps.setString(1,name);
+        	ps.setString(2,phone);
+        	ps.setString(3,role);
+        	ps.setString(4,username);
+        	ps.setString(5,password);
+        	ps.setInt(7,svid);
+        	
 
 			if (inputStream != null) {
 				// fetches input stream of the upload file for the blob column
-				ps.setBlob(1, inputStream);
+				ps.setBlob(6, inputStream);
 			}
 
 			// sends the statement to the database server
@@ -106,6 +110,6 @@ public class UploadServlet extends HttpServlet {
 			ex.printStackTrace();
 		}
 		// sets the message in request scope
-        response.sendRedirect("Announcement.jsp");
+        response.sendRedirect("Staff.jsp");
 	}
 }

@@ -17,7 +17,16 @@ public class Announcement implements Serializable {
 	public String descr;
 	public Date date;
 	public String time;
+	int svid;
 	
+	public int getSvid() {
+		return svid;
+	}
+
+	public void setSvid(int svid) {
+		this.svid = svid;
+	}
+
 	public Announcement() {}
 
 	public int getId() {

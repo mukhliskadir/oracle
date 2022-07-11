@@ -140,24 +140,11 @@ public class AnnouncementServlet extends HttpServlet {
         String desc = request.getParameter("aDesc");
         String date = request.getParameter("aDate");
         String timme = request.getParameter("aTime");
-		Part filePart = request.getPart("aPicture");
-        InputStream inputStream = null;
-
-		if (filePart != null) {
-			// debug messages
-			System.out.println(filePart.getName());
-			System.out.println(filePart.getSize());
-			System.out.println(filePart.getContentType());
-
-			// obtains input stream of the upload file
-			inputStream = filePart.getInputStream();
-		}
-      
+	
 
         
         Announcement anc = new Announcement();
         anc.setId(id);
-        anc.setPicture(inputStream);
         anc.setTitle(title);
         anc.setDescr(desc);
         anc.setDate(Date.valueOf(date));

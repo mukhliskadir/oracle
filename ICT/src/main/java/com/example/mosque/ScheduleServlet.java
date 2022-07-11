@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ScheduleServlet
@@ -118,8 +119,10 @@ public class ScheduleServlet extends HttpServlet {
         int spks7 = Integer.parseInt(request.getParameter("scSpeakers7"));
         int tpcs7 = Integer.parseInt(request.getParameter("scTopics7"));
       
-
-
+        HttpSession session=request.getSession();  
+        int staffid = (Integer) session.getAttribute("staffid");
+        
+        
         Schedule sc = new Schedule();
 
         sc.setScheduleDate(Date.valueOf(date));
@@ -178,6 +181,7 @@ public class ScheduleServlet extends HttpServlet {
         sc.setSpeakerId2_7(spks7);
         sc.setTopicId2_7(tpcs7);
         
+        sc.setStaffid(staffid);
 
         scd.addSchedule(sc);
         response.sendRedirect("senaraiJadual.jsp");
