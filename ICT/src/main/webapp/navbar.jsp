@@ -11,6 +11,8 @@
     <script src="JS/searchTable.js"></script>
 </head>
 <body>
+<%    if(session.getAttribute("staffid")==null)
+    response.sendRedirect("index.jsp"); %>
 
 
 <div class="sidebar">
