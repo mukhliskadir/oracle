@@ -76,7 +76,7 @@
 </sql:query>
 
  <sql:query dataSource="${ic}" var="od">
-         SELECT RANK() OVER(ORDER BY announcementid)  "rank",announcementpicture,announcementid,announcementtitle,announcementdesc,to_char(announcementdate,'YYYY-MM-DD')"announcementdate",announcementtime from announcement
+         SELECT RANK() OVER(ORDER BY announcementid)  "rank",announcementpicture,announcementid,announcementtitle,announcementdesc,to_char(announcementdate,'DD Month YYYY')"announcementdate",announcementtime from announcement
  </sql:query>
  
 
@@ -175,16 +175,16 @@
   <div id="slide">
   	<p style="font-family: 'Brush Script MT';margin-left:auto;text-align:center;margin-right:auto;font-size:40px">Pengumuman</p>
  
- <div class="w3-display-container" style="border:2px solid black;width:1200px;text-align:center;margin-left:auto;margin-right:auto;padding-top:10px;">
+ <div class="w3-display-container" style="border:2px solid black;width:1200px;text-align:center;margin-left:auto;margin-right:auto;padding-top:10px;margin-bottom:15px;">
 <c:forEach var="result" items="${od.rows}">
 
 <div class="w3-display-container mySlides">
           <img style="width:800px;height:500px;" src="${pageContext.servletContext.contextPath }/AnnouncementServlet?id=${result.announcementid}" />
   <div class="description">
-         <c:out value="${result.announcementtitle}"/><br>
-          <c:out value="${result.announcementdesc}"/><br>
-           <c:out value="${result.announcementdate}"/><br>
-            <c:out value="${result.announcementtime}"/><br>
+   <p><strong>    PROGRAM :    <c:out value="${result.announcementtitle}"/></strong></p><br>	
+         <c:out value="${result.announcementdesc}"/><br>
+       TARIKH : <c:out value="${result.announcementdate}"/><br>
+        JAM <c:out value="${result.announcementtime}"/><br>
   </div>
 </div>
 </c:forEach>
@@ -199,8 +199,9 @@
     </div>
           
 </div>
-<div class="footer" style="height:80px;">
-
+<div class="footer" style="margin-top:20px;text-align:center;">
+	
+<p>Created by eSchedule. © 2022</p>
 
 </div>
 </body>
