@@ -34,12 +34,15 @@ password="system"
          <form method="post" action="display.jsp">
 		<input type="date" name="fDate"> HINGGA
 		<input type="date" name="tDate">
-	
-	
-            <button  class="action"  type="submit" >CARI
-			</button>
-    </form>
 
+            <button  class="action"  type="submit" >CARI</button>
+    </form>
+    
+      <div id="mybutton" class="button">
+		<form >
+   				  <button    type="submit" formaction="senaraiJadual.jsp">UBAH JADUAL</button>
+         </form>
+      </div>
          <form class="speaker" method="post" action="ScheduleServlet">
             <div class="schedulee">
                <table class="jaduall">
@@ -356,13 +359,9 @@ password="system"
                <input type="hidden" name="scTimes7" value="Maghrib">
             </div>
                 <input type="hidden" name="action" value="addSchedule">
-				<button type="submit" class="button button1" name="submit" >Add</button><br><br>
+				<button type="submit" class="button button1" name="submit" >TAMBAH</button><br><br>
          </form>
-<form >
-                           <button    type="submit" formaction="senaraiJadual.jsp"
-                              >SENARAI JADUAL
-                           </button>
-                        </form>
+
          <br />
          <br />
          <br />

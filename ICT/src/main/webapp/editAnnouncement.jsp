@@ -76,9 +76,9 @@ while(rs.next())
     <%} %>
     
      <div id="mybutton" class="button">
-             <button type="cancel" name="action"  value="cancel" formaction="AnnouncementServlet">CANCEL</button>
+             <button type="cancel" name="action"  value="cancel" formaction="AnnouncementServlet">BATAL</button>
           <input type="hidden" name="action" value="updateAnnouncement">
-                        <button type="submit" formaction="AnnouncementServlet">Update</button>
+                        <button type="submit" formaction="AnnouncementServlet">KEMASKINI</button>
                          </div>
   </form>
 <br><br>

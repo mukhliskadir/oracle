@@ -53,7 +53,9 @@ public class ScheduleServlet extends HttpServlet {
 	                case "cancel":
 	                    cancel(request, response);
 	                    break;
-	               
+	                case "deleteSchedule":
+	                    deleteSchedule(request,response);
+	                    break;
 	            }
 
 	        } catch (SQLException e) {
@@ -206,5 +208,21 @@ public class ScheduleServlet extends HttpServlet {
             throws SQLException, IOException {
 		response.sendRedirect("senaraiJadual.jsp");
 	}
+	private void deleteSchedule(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+
+        String date = request.getParameter("fromDate");
+        String date2 = request.getParameter("toDate");
+
+        
+        
+        Schedule sc = new Schedule();
+
+        sc.setScheduleDate(Date.valueOf(date));
+        sc.setScheduleDate_2(Date.valueOf(date2));
+   
+        scd.deleteSchedule(sc);
+        response.sendRedirect("senaraiJadual.jsp");
+    }
 
 }

@@ -37,9 +37,10 @@
         <table style="text-align: center;" id="listPenceramah">
             <tr>
                 <th onclick="sortTable(0)" style="width: 80px; height: 50px;">⥯ No.</th>
-                <th onclick="sortTable(1)" style="width:400px;">⥯ Nama</th>
+                <th style="width:200px;">Gambar</th>
+                <th onclick="sortTable(1)" style="width:600px;">⥯ Nama</th>
                 <th onclick="sortTable(2)" style="width: 300px;">⥯ No. Telefon</th>
-                <th onclick="sortTable(4)" style="width: 450px;">⥯ Jawatan</th>
+                <th onclick="sortTable(4)" style="width: 250px;">⥯ Jawatan</th>
                 <th style="width: 100px;">Tindakan</th>
             </tr>
             <c:forEach var="result" items="${staff.rows}">
@@ -48,6 +49,9 @@
                     <td >
                         <c:out value="${result.rank}"/>
                     </td>
+                    <td class="name">
+            			<img style="width:150px;height:150px;" src="${pageContext.servletContext.contextPath }/StaffServlet?id=${result.staffid}" />
+						</td>
                     <td >
                         <c:out value="${result.staffname}"/>
                     </td>

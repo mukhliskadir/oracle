@@ -87,7 +87,7 @@
  <div class="content" ><br>    
   <div id="home">
   <div style="overflow-x:auto;">
-  	<p style="font-family: 'Brush Script MT';margin-left:auto;text-align:center;margin-right:auto;font-size:40px">Jadual Kuliah Mingguan</p>
+  	<p style="font-family: 'Brush Script MT';margin-left:auto;text-align:center;margin-right:auto;font-size:40px">Jadual Kuliah Harian</p>
 <table id="main">
 	<tbody>
 		<tr>

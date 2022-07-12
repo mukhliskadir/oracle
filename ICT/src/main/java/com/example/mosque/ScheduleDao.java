@@ -161,6 +161,19 @@ public class ScheduleDao {
 	        }
 	    }
 	 
+	    public boolean deleteSchedule(Schedule sc) throws SQLException {
+	        boolean rowDeleted;
+	        try (Connection connection = getConnection();
+	             PreparedStatement ps = connection.prepareStatement("delete from schedule where scheduledate  >=? and scheduledate  <= ?");) {
+
+	        	ps.setDate(1, sc.getScheduleDate());
+	        	ps.setDate(2, sc.getScheduleDate_2());
+	        	
+	            out.println(ps);
+	        	rowDeleted = ps.executeUpdate() > 0;
+	        }
+	        return rowDeleted;
+	    }
 	    public boolean updateSchedule(Schedule sc) throws SQLException {
 	        boolean rowUpdated;
 	        try (Connection connection = getConnection();

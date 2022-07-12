@@ -40,10 +40,10 @@
 </sql:query>
 
   <div class="content" ><br>
-  
-  <a href="index.jsp?sql=<%=sql%>">Display</a>
-      
-         <h2>PENCERAMAH</h2>
+    
+         <h2><%=startDate %> HINGGA <%=toDate %></h2>
+         
+          
   <div style="overflow-x:auto;">
  
 <table id="main">
@@ -127,7 +127,19 @@
 	</tbody>
 </table>
           </div>
+       <div id="mybutton" class="button">
+  <form >
+   	<button    type="submit" formaction="senaraiJadual.jsp">UBAH JADUAL</button>
+   </form>  
+   <form method="post" action="ScheduleServlet">
+   <input type="hidden" name="fromDate" value="<%=startDate %>"/>
+   <input type="hidden" name="toDate" value="<%=toDate %>"/>
+   
+   	<button    type="delete" name="action" value="deleteSchedule" onclick="return confirm('Yakin untuk buang?')">BUANG</button>
+   </form>  
 </div>
+</div>
+
 
 </body>
 <style>

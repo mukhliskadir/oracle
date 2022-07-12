@@ -50,7 +50,7 @@
     
      <div id="mybutton" class="button">  
  <!--      <input type="hidden" name="action" value="addAnnouncement">   -->      	
-    <button type="submit" class="button button1" name="submit" >Add</button><br><br>
+    <button type="submit" class="button button1" name="submit" >TAMBAH</button><br><br>
     </div>
 </form>
       </div>
